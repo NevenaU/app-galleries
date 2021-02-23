@@ -33,7 +33,7 @@
       </div>
 
       <button class="btn btn-primary btn-block" type="submit">Submit</button>
-      <button @click="cancel" class="btn btn-secondary btn-block" type="button">
+      <button @click="cancel()" class="btn btn-secondary btn-block" type="button">
         Cancel
       </button>
     </form>

@@ -2,8 +2,8 @@
 import HTTP from "./http_service";
 
 class AuthService {
-  async login(credentials) {
-    const { data } = await HTTP.post("/login", credentials);
+  async login(email, password) {
+    const { data } = await HTTP.post("/login", {email, password});
     return data;
   }
 
