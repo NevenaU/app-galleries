@@ -1,6 +1,5 @@
 <template>
   <div>
-      <h1>login</h1>
     <form @submit.prevent="onSubmit">
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
