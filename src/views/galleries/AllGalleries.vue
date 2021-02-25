@@ -18,7 +18,7 @@
       </div>
       <button
         class="btn btn-primary"
-        style="marginbottom: 15px"
+        style="margin-bottom: 50px"
         v-if="currentSize <= numberOfGalleries"
         @click="loadMoreGalleries"
       >

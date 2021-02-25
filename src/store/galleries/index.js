@@ -10,7 +10,10 @@ const store = {
     namespaced: true,
     state: {
         galleries: [],
-        numberOfGalleries: Number
+        numberOfGalleries: Number,
+        singleGallery: {},
+        authorGalleries: {},
+        author: {},
     },
     mutations,
     actions,
