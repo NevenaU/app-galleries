@@ -42,6 +42,7 @@
           class="form-control"
           id="password"
           aria-describedby="password"
+          minlength="8"
         />
       </div>
       <div class="mb-3">

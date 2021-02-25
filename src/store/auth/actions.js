@@ -32,4 +32,5 @@ export const actions = {
     store.commit('setActiveUser', {});
     localStorage.removeItem('token');
   },
+  
 };

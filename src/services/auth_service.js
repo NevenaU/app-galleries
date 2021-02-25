@@ -1,9 +1,8 @@
-
 import HTTP from "./http_service";
 
 class AuthService {
-  async login(email, password) {
-    const { data } = await HTTP.post("/login", {email, password});
+  async login(credentials) {
+    const { data } = await HTTP.post("/login", credentials);
     return data;
   }
 
@@ -15,11 +14,7 @@ class AuthService {
   logout() {
     return HTTP.post("/logout");
   }
-
-  async getMyProfile() {
-    const { data } = await HTTP.get("/me");
-    return data;
-  }
+  
 }
 
 const authService = new AuthService();

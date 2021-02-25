@@ -9,6 +9,7 @@
           type="email"
           class="form-control"
           id="email"
+          name="email"
           aria-describedby="email"
         />
       </div>
@@ -21,11 +22,15 @@
           type="password"
           class="form-control"
           id="password"
+          name="password"
           aria-describedby="password"
         />
       </div>
-      <p v-if="loginFailed" class="error-message">Something went wrong</p>
+      <p v-if="loginFailed" class="error-message" style="color:red;">Incorrect email or password</p>
       <button type="submit" class="btn btn-primary">Login</button>
+      <div class="mt-2">
+        <router-link to="/register">Please register if you don't have an account</router-link>
+      </div>
     </form>
   </div>
 </template>
@@ -35,12 +40,13 @@ import { mapActions } from "vuex";
 
 export default {
   name: "login",
+
   data() {
     return {
       loginFailed: false,
       credentials: {
         email: "",
-        password: "",
+        password: ""
       },
     };
   },
@@ -57,6 +63,7 @@ export default {
     },
     ...mapActions('auth', ['login']),
   },
+  
 };
 </script>
 
