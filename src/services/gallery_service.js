@@ -20,6 +20,23 @@ class GalleryService {
       },
     });
   }
+  createNewGallery(gallery) {
+    return HTTP.post("/galleries", gallery);
+  }
+
+  editGallery(payload) {
+    return HTTP.put(`/edit-gallery/${payload.id}`, payload.gallery);
+  }
+  deleteGallery(id) {
+    return HTTP.delete(`/galleries/${id}`);
+  }
+  createComment(comment) {
+    const content = comment.content;
+    return HTTP.post(`/galleries/${comment.post_id}/comments`, { content });
+  }
+  deleteComment(id) {
+    return HTTP.delete(`/delete-comment/${id}`);
+  }
 }
 
 const galleryService = new GalleryService();

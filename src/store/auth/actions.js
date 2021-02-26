@@ -1,36 +1,40 @@
-
-import authService from '../../services/auth_service';
+import authService from "../../services/auth_service";
 
 export const actions = {
   async login(store, credentials) {
     const { user, token } = await authService.login(credentials);
-    localStorage.setItem('token', JSON.stringify(token));
+    localStorage.setItem("token", JSON.stringify(token));
 
-    store.commit('setActiveUser', user);
-    store.commit('setToken', token);
+    store.commit("setActiveUser", user);
+    store.commit("setToken", token);
   },
 
   async register(store, userDetails) {
     const { user, token } = await authService.register(userDetails);
-    localStorage.setItem('token', JSON.stringify(token));
+    localStorage.setItem("token", JSON.stringify(token));
 
-    store.commit('setActiveUser', user);
-    store.commit('setToken', token);
+    store.commit("setActiveUser", user);
+    store.commit("setToken", token);
   },
 
   async getActiveUser(store) {
     if (store.getters.isAuthenticated) {
       const activeUser = await authService.getMyProfile();
-      store.commit('setActiveUser', activeUser);
+      store.commit("setActiveUser", activeUser);
     } else {
-      store.commit('setActiveUser', {});
+      store.commit("setActiveUser", {});
     }
   },
   async logout(store) {
     await authService.logout();
-    store.commit('setToken', null);
-    store.commit('setActiveUser', {});
-    localStorage.removeItem('token');
+    store.commit("setToken", null);
+    store.commit("setActiveUser", {});
+    localStorage.removeItem("token");
   },
-  
+
+  async getAuthUserGalleries(state, payload) {
+    await authService
+      .authUserGalleries(payload)
+      .then((response) => state.commit("setAuthUserGalleries", response.data));
+  },
 };

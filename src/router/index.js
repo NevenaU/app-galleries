@@ -8,6 +8,8 @@ import MyGalleries from "../views/galleries/MyGalleries.vue";
 import AuthorGalleries from "../views/galleries/AuthorGalleries.vue";
 import SingleGallery from "../views/galleries/SingleGallery";
 import CreateGallery from "../views/galleries/CreateGallery.vue";
+import EditGallery from"../views/galleries/EditGallery.vue";
+
 import { globalAuthGuard } from "../guards/authGuard";
 
 
@@ -59,6 +61,13 @@ const routes = [
     name: 'AuthorGalleries',
     component: AuthorGalleries,
     meta: { authRequired: true },
+  },
+
+  {
+    path: '/edit-gallery/:id',
+    name: 'EditGallery',
+    component: EditGallery,
+    meta: { isAuthRequired: true }
   },
 ];
 

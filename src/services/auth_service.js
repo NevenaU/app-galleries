@@ -14,7 +14,19 @@ class AuthService {
   logout() {
     return HTTP.post("/logout");
   }
-  
+  async getMyProfile() {
+    const { data } = await HTTP.get("/auth-user");
+    return data;
+  }
+
+  authUserGalleries(payload) {
+    return HTTP.get("/auth-user-gallery", {
+      headers: {
+        pagination: payload.pagination,
+        searchText: payload.searchText,
+      },
+    });
+  }
 }
 
 const authService = new AuthService();

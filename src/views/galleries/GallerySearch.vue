@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="search">
         <form class="form-inline" @submit.prevent="handleSearchText">
             <input class="form-control" type="search" placeholder="Search galleries..." v-model="search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <button  class="btn btn-primary" type="submit">Search</button>
         </form>
     </div>
 </template>
@@ -21,3 +21,16 @@ export default {
     }
 }
 </script>
+
+<style>
+div.search {
+    margin-top:10px;
+    margin-bottom: 20px;
+}
+
+.btn{
+  color: var(--button-color);
+  background-color: rgb(116, 216, 255);
+
+} 
+</style>

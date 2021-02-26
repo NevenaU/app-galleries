@@ -68,4 +68,7 @@ export default {
 </script>
 
 <style>
+form{
+ margin-top: 50px;
+}
 </style>

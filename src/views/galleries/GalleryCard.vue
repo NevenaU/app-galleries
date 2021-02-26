@@ -4,7 +4,7 @@
             <h3 class="card-title"><router-link class="text-dark" :to="`/galleries/${gallery.id}`">{{gallery.title}}</router-link></h3>
              <img class="card-img" :src="gallery.images[0].url" alt="Card image cap">
               <p class="card-text">Author: <router-link class="text-dark" :to="`/author/${gallery.user.id}`">{{gallery.user.first_name}} {{gallery.user.last_name}}</router-link></p>
-              <p class="card-text">Created at: {{gallery.created_at}}</p>
+              <p class="card-text">Created at: {{gallery.created_at | moment("dddd, MMMM Do YYYY, h:mm:ss a")}}</p>
         </div>
     </div>
 </template>

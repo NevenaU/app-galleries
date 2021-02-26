@@ -11,7 +11,9 @@
           id="first_name"
           aria-describedby="first_name"
         />
-
+        <p v-if="errors.first_name" class="text-danger">
+          {{ errors.first_name[0] }}
+        </p>
         <label for="last_name" class="form-label">Last Name</label>
         <input
           v-model="userData.last_name"
@@ -21,6 +23,9 @@
           id="last_name"
           aria-describedby="name"
         />
+        <p v-if="errors.last_name" class="text-danger">
+          {{ errors.last_name[0] }}
+        </p>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
@@ -32,6 +37,7 @@
           id="email"
           aria-describedby="email"
         />
+        <p v-if="errors.email" class="text-danger">{{ errors.email[0] }}</p>
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
@@ -44,6 +50,9 @@
           aria-describedby="password"
           minlength="8"
         />
+        <p v-if="errors.password" class="text-danger">
+          {{ errors.password[0] }}
+        </p>
       </div>
       <div class="mb-3">
         <label for="password_confirmation" class="form-label"
@@ -71,6 +80,9 @@
           <label class="form-check-label" for="flexCheckDefault">
             I accept terms and conditions
           </label>
+          <p v-if="errors.terms" class="text-danger">
+            {{ errors.terms[0] }}
+          </p>
         </div>
       </div>
 
@@ -95,6 +107,7 @@ export default {
         password_confirmation: "",
         terms: "",
       },
+      errors: [],
     };
   },
   methods: {
